@@ -27,3 +27,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)" -- \
     -t agnoster
+
+RUN echo "if [ -t 1 ]; then" >> /root/.bashrc
+RUN echo "exec zsh" >> /root/.bashrc
+RUN echo "fi" >> /root/.bashrc
